@@ -2,18 +2,17 @@
 import math
 import numpy as np
 from functools import cache
+from part1 import solve as solve_part_1
 
 # Placeholders to be filled when copying the template
-PART = 1
+PART = 2
 DAY = 7
 YEAR = 2015
 
 # The expected result from the test input, if using a test input
 TEST_RESULT = 65079
 
-def calculate(character, calculations, values):
-    print(character)
-    
+def calculate(character, calculations, values):    
     if character in values:
         return values[character]
     try:
@@ -37,6 +36,7 @@ def calculate(character, calculations, values):
         case 5:
             v = calculate(calculation[1], calculations, values) >> calculate(calculation[2], calculations, values)
     values[character] = v
+
     return v
 # Method to solve the input stored in a given file name
 def solve(filename: str) -> int:
@@ -65,8 +65,11 @@ def solve(filename: str) -> int:
         elif c[1] == 'RSHIFT':
             calculations[s] = (5, c[0], c[2])
 
-    # --- SOLUTION CODE ---
-    return calculate('a', calculations, values)
+    values['b'] = np.array([solve_part_1(filename)], dtype=np.uint16)
 
-print(f"Test solution: {solve('test.txt')}")
-print(f"Actual solution: {solve('input.txt')}")
+    # --- SOLUTION CODE ---
+    return calculate('a', calculations, values)[0]
+
+if __name__ == "__main__":
+    print(f"Test solution: {solve('test.txt')}")
+    print(f"Actual solution: {solve('input.txt')}")

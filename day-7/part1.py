@@ -4,16 +4,14 @@ import numpy as np
 from functools import cache
 
 # Placeholders to be filled when copying the template
-PART = 2
+PART = 1
 DAY = 7
 YEAR = 2015
 
 # The expected result from the test input, if using a test input
 TEST_RESULT = 65079
 
-def calculate(character, calculations, values):
-    print(character)
-    
+def calculate(character, calculations, values):    
     if character in values:
         return values[character]
     try:
@@ -65,10 +63,9 @@ def solve(filename: str) -> int:
         elif c[1] == 'RSHIFT':
             calculations[s] = (5, c[0], c[2])
 
-    values['b'] = np.array([3176], dtype=np.uint16)
-
     # --- SOLUTION CODE ---
     return calculate('a', calculations, values)[0]
 
-print(f"Test solution: {solve('test.txt')}")
-print(f"Actual solution: {solve('input.txt')}")
+if __name__ == "__main__":
+    print(f"Test solution: {solve('test.txt')}")
+    print(f"Actual solution: {solve('input.txt')}")
