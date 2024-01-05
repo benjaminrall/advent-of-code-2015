@@ -41,5 +41,6 @@ def solve(filename: str) -> int:
     # --- SOLUTION CODE ---
     return total
 
-print(f"Test solution: {solve('test.txt')}")
-print(f"Actual solution: {solve('input.txt')}")
+if __name__ == "__main__":
+    print(f"Test solution: {solve('test.txt')}")
+    print(f"Actual solution: {solve('input.txt')}")
