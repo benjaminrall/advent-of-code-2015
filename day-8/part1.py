@@ -1,5 +1,4 @@
 # Useful imports
-import pyaoc
 import math
 import numpy as np
 from functools import cache
@@ -10,21 +9,24 @@ DAY = 8
 YEAR = 2015
 
 # The expected result from the test input, if using a test input
-TEST_RESULT = None
+TEST_RESULT = 12
 
 # Method to solve the input stored in a given file name
 def solve(filename: str) -> int:
     # --- INPUT HANDLING ---
     with open(filename) as f:
         lines = [line.strip() for line in f.readlines()]
-    print(lines)
+
+    total = 0
+    for line in lines:
+        edited = line[1:-1].replace('\\\\', ' ').replace('\\"', '"')
+        hex_count = edited.count('\\x')
+        string_length = len(edited) - 3 * hex_count
+        total += len(line) - string_length
 
     # --- SOLUTION CODE ---
-    return None
+    return total
 
-# Attempt to submit the current solve method
-pyaoc.submit(
-    solve, PART, DAY, YEAR, 
-    test_result=TEST_RESULT,
-    test=True
-)
+if __name__ == "__main__":
+    print(f"Test solution: {solve('test.txt')}")
+    print(f"Actual solution: {solve('input.txt')}")
