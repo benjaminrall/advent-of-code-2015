@@ -67,7 +67,6 @@ def solve(filename: str) -> int:
 
     values['b'] = np.array([solve_part_1(filename)], dtype=np.uint16)
 
-    # --- SOLUTION CODE ---
     return calculate('a', calculations, values)[0]
 
 if __name__ == "__main__":

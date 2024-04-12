@@ -38,7 +38,6 @@ def solve(filename: str) -> int:
                 total += 1
                 break
 
-    # --- SOLUTION CODE ---
     return total
 
 if __name__ == "__main__":

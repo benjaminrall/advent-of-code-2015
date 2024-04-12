@@ -31,8 +31,6 @@ def solve(filename: str) -> int:
         else:
             grid[start[0]:end[0], start[1]:end[1]] += 2
 
-
-    # --- SOLUTION CODE ---
     return grid.sum()
 
 if __name__ == "__main__":

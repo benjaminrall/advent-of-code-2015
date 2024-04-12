@@ -37,7 +37,6 @@ def solve(filename: str) -> int:
         if nice:
             total += 1
 
-    # --- SOLUTION CODE ---
     return total
 
 if __name__ == "__main__":

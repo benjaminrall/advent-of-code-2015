@@ -21,7 +21,6 @@ def solve(filename: str) -> int:
     for line in lines:
         total += 3 * line[0] * line[1] + 2 * (line[0] * line[2] + line[1] * line[2])
 
-    # --- SOLUTION CODE ---
     return total
 
 if __name__ == "__main__":

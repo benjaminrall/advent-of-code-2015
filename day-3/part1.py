@@ -30,7 +30,6 @@ def solve(filename: str) -> int:
         pos += DIRS[char]
         visited.add(pos)
 
-    # --- SOLUTION CODE ---
     return len(visited)
 
 if __name__ == "__main__":

@@ -2,27 +2,44 @@
 import math
 import numpy as np
 from functools import cache
+import json
 
 # Placeholders to be filled when copying the template
 PART = 2
-DAY = 8
+DAY = 12
 YEAR = 2015
 
 # The expected result from the test input, if using a test input
-TEST_RESULT = 19
+TEST_RESULT = 4
+
+def count(obj) -> int:
+    if type(obj) == int:
+        return obj
+    
+    if type(obj) == dict:
+        total = 0
+        for key in obj:
+            if obj[key] == "red":
+                return 0
+            total += count(obj[key])
+        return total
+    
+    if type(obj) == list:
+        total = 0
+        for element in obj:
+            total += count(element)
+        return total
+
+    return 0
 
 # Method to solve the input stored in a given file name
 def solve(filename: str) -> int:
     # --- INPUT HANDLING ---
     with open(filename) as f:
         lines = [line.strip() for line in f.readlines()]
+    obj = json.loads(lines[0])
 
-    total = 0
-    for line in lines:
-        edited = '"' + line.replace('\\', '\\\\').replace('"', '\\"') + '"'
-        total += len(edited) - len(line)
-
-    return total
+    return count(obj)
 
 if __name__ == "__main__":	
     print(f"Test solution: {solve('test.txt')}")

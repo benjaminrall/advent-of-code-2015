@@ -36,6 +36,7 @@ def calculate(character, calculations, values):
             v = calculate(calculation[1], calculations, values) >> calculate(calculation[2], calculations, values)
     values[character] = v
     return v
+
 # Method to solve the input stored in a given file name
 def solve(filename: str) -> int:
     # --- INPUT HANDLING ---
@@ -63,7 +64,6 @@ def solve(filename: str) -> int:
         elif c[1] == 'RSHIFT':
             calculations[s] = (5, c[0], c[2])
 
-    # --- SOLUTION CODE ---
     return calculate('a', calculations, values)[0]
 
 if __name__ == "__main__":

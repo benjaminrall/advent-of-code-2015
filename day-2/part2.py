@@ -20,7 +20,7 @@ def solve(filename: str) -> int:
     total = 0
     for line in lines:
         total += 2 * (line[0] + line[1]) + np.prod(line)
-    # --- SOLUTION CODE ---
+
     return total
 
 if __name__ == "__main__":

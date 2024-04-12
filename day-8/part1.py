@@ -24,7 +24,6 @@ def solve(filename: str) -> int:
         string_length = len(edited) - 3 * hex_count
         total += len(line) - string_length
 
-    # --- SOLUTION CODE ---
     return total
 
 if __name__ == "__main__":
