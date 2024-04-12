@@ -1,2 +1,2 @@
 import pyaoc
-pyaoc.create_day(19, 2015)
+pyaoc.create_day(24, 2015)

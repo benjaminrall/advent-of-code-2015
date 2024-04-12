@@ -1,10 +1,9 @@
 # Useful imports
-import pyaoc
 import math
 import numpy as np
 from functools import cache
 from collections import defaultdict
-import re
+import random
 
 # Placeholders to be filled when copying the template
 PART = 2
@@ -16,7 +15,7 @@ TEST_RESULT = 3
 
 def find_all(rule, molecule):
     L = len(rule)
-    for i in range(len(molecule) - L + 1):
+    for i in range(len(molecule) - L,  -1, -1):
         if rule == molecule[i:i+L]:
             yield (i, i + L)
 
@@ -24,8 +23,6 @@ def search(mol, rules, depth=0, seen: dict = defaultdict(lambda : np.inf)):
     if mol in seen:
         return seen[mol]
     
-    print(mol)
-
     if mol == 'e':
         return depth
     
@@ -54,14 +51,27 @@ def solve(filename: str) -> int:
     rules = []
     for r in rs:
         a, b = r.split(" => ")
-        rules.append((a, b, len(b) - len(a)))
-    rules.sort(key=lambda x : x[2], reverse=True)
+        rules.append((a, b))
+    
+    total = 0
 
-    return search(molecule, rules)
+    target = molecule
+    while target != "e":
+        temp = target
+        for a, b in rules:
+            if b not in target:
+                continue
 
-# Attempt to submit the current solve method
-pyaoc.submit(
-    solve, PART, DAY, YEAR, 
-    test_result=TEST_RESULT,
-    test=True
-)
+            target = target.replace(b, a, 1)
+            total += 1
+        
+        if temp == target:
+            target = molecule
+            total = 0
+            random.shuffle(rules)
+
+    return total
+
+if __name__ == "__main__":
+	print(f"Test solution: {solve('test.txt')}")
+	print(f"Actual solution: {solve('input.txt')}")
