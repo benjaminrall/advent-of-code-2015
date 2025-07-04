@@ -3,7 +3,6 @@ import math
 import numpy as np
 from functools import cache
 from collections import defaultdict
-from scipy.sparse.csgraph import minimum_spanning_tree
 
 # Placeholders to be filled when copying the template
 PART = 2
