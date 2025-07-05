@@ -5,6 +5,7 @@ This repository contains my Python solutions for the [Advent of Code 2015](https
 ## Running the solutions
 
 This project uses [uv](https://github.com/astral-sh/uv) as a package and virtual environment manager.
+The `uv run` command will automatically create a virtual environment and install dependencies on its first use.
 
 1. **Clone the repository**:
 ```sh
@@ -19,4 +20,3 @@ cd day-1
 ```sh
 uv run part1.py
 ```
-The `uv run` command will automatically create a virtual environment and install all dependencies if they are not already present.
