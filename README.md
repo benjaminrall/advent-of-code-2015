@@ -1,6 +1,6 @@
 # Advent of Code 2015 🎄
 
-This repository contains my Python solutions for the [Advent of Code 2015](https://adventofcode.com/2015) programming challenges.
+This repository contains my Python solutions for the [Advent of Code 2015](https://adventofcode.com/2015) programming puzzles.
 
 ## Running the solutions
 
