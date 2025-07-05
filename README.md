@@ -8,12 +8,12 @@ This project uses [uv](https://github.com/astral-sh/uv) as a package and virtual
 
 1. **Clone the repository**:
 ```sh
-> git clone https://github.com/benjaminrall/advent-of-code-2015.git
-> cd advent-of-code-2015
+git clone https://github.com/benjaminrall/advent-of-code-2015.git
+cd advent-of-code-2015
 ```
 2. **Navigate to the desired day's directory**:
 ```sh
-> cd day-1
+cd day-1
 ```
 3. **Run the desired script**:
 ```sh
